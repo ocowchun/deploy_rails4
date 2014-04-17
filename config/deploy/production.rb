@@ -7,10 +7,10 @@ set :branch, "master"
 set :full_app_name, "#{fetch(:application)}_#{fetch(:stage)}"
 
 # # specify server DNS name, user & roles
-# server '54.199.252.203', user: 'vagrant', roles: %w{web app db},ssh_options: {
-#   keys:["/Users/ocowchun/Documents/Achilles/imagic_test.pem"]
-# }, primary: true
-server '192.168.0.9', user: 'vagrant', roles: %w{web app db}, primary: true
+server '127.0.0.1', user: 'vagrant', roles: %w{web app db},ssh_options: {
+  port: 2222, keys:["/Users/ocowchun/.vagrant.d/insecure_private_key"]
+}, primary: true
+# server '192.168.0.9', user: 'vagrant', roles: %w{web app db}, primary: true
 
 set :deploy_to, "/home/#{fetch(:deploy_user)}/apps/#{fetch(:full_app_name)}"
 
